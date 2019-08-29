@@ -15,7 +15,10 @@ const dummyComponent = (viewDescription: string) => withNavigation(({ navigation
     if(viewDescription === 'splashScreen') {
       navigationManager.replace('main');
     }
-  }, [])
+  }, []);
+
+  if(viewDescription === 'splashScreen') null;
+
   return (
     <SafeAreaView>
       <Text>{viewDescription}</Text>
