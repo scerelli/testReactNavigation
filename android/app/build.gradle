@@ -137,6 +137,21 @@ android {
     }
 }
 
+preBuild.doFirst {
+    ant.replaceregexp(match: 'android.support.annotation.NonNull;', replace: 'androidx.annotation.NonNull;', flags: 'g', byline: true)
+            {
+                fileset(dir: '../../node_modules/react-native-reanimated/android/src/main/java/com/swmansion/reanimated/transitions/', includes: '*.java')
+            }
+    ant.replaceregexp(match: 'android.support.annotation.Nullable;', replace: 'androidx.annotation.Nullable;', flags: 'g', byline: true)
+            {
+                fileset(dir: '../../node_modules/react-native-reanimated/android/src/main/java/com/swmansion/reanimated/transitions/', includes: '*.java')
+            }
+    ant.replaceregexp(match: 'android.support.transition', replace: 'androidx.transition', flags: 'g', byline: true)
+            {
+                fileset(dir: '../../node_modules/react-native-reanimated/android/src/main/java/com/swmansion/reanimated/transitions/', includes: '*.java')
+            }
+}
+
 dependencies {
     implementation project(':react-native-reanimated')
     implementation project(':react-native-gesture-handler')
