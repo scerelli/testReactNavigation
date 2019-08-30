@@ -13,7 +13,7 @@ const onPress = (navManager: INavigationManager, goTo: string) => () => {
 const dummyComponent = (viewDescription: string) => withNavigation(({ navigationManager }) => {
   useEffect(() => {
     if(viewDescription === 'splashScreen') {
-      navigationManager.replace('main');
+      navigationManager.restore('main');
     }
   }, []);
 
